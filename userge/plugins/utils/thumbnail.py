@@ -28,12 +28,12 @@ async def _init() -> None:
             thumb_file.write(base64.b64decode(data['data']))
 
 
-@userge.on_cmd('sthumb', about={
+@userge.on_cmd('save', about={
     'header': "Save thumbnail",
-    'usage': "{tr}sthumb [reply to any photo]"})
+    'usage': "{tr}save [reply to any photo]"})
 async def save_thumb_nail(message: Message):
     """ setup thumbnail """
-    await message.edit("processing ...")
+    await message.edit("Processing ...")
     replied = message.reply_to_message
     if (replied and replied.media
             and (replied.photo
@@ -56,10 +56,10 @@ async def save_thumb_nail(message: Message):
         await message.edit("Reply to a photo to save custom thumbnail", del_in=3)
 
 
-@userge.on_cmd('dthumb', about={'header': "Delete thumbnail"}, allow_channels=False)
+@userge.on_cmd('clear', about={'header': "Delete thumbnail"}, allow_channels=False)
 async def clear_thumb_nail(message: Message):
     """ delete thumbnail """
-    await message.edit("`processing ...`")
+    await message.edit("Processing ...")
     if os.path.exists(Config.THUMB_PATH):
         os.remove(Config.THUMB_PATH)
         await SAVED_SETTINGS.find_one_and_delete({'_id': 'CUSTOM_THUMB'})
@@ -71,10 +71,10 @@ async def clear_thumb_nail(message: Message):
         await message.delete()
 
 
-@userge.on_cmd('vthumb', about={'header': "View thumbnail"}, allow_channels=False)
+@userge.on_cmd('view', about={'header': "View thumbnail"}, allow_channels=False)
 async def get_thumb_nail(message: Message):
     """ view current thumbnail """
-    await message.edit("processing ...")
+    await message.edit("Processing ...")
     if os.path.exists(Config.THUMB_PATH):
         msg = await message.client.send_document(chat_id=message.chat.id,
                                                  document=Config.THUMB_PATH,
