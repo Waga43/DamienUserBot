@@ -44,16 +44,16 @@ async def rename_(message: Message):
     if not message.filtered_input_str:
         await message.err("new name not found!")
         return
-    await message.edit("`Trying to Rename ...`")
+    await message.edit("🔵 Trying to Rename ...")
     if message.reply_to_message and message.reply_to_message.media:
         dl_loc = await message.client.download_media(
             message=message.reply_to_message,
             file_name=Config.DOWN_PATH,
             progress=progress,
-            progress_args=(message, "trying to download")
+            progress_args=(message, "✅ Trying To Download")
         )
         if message.process_is_canceled:
-            await message.edit("`Process Canceled!`", del_in=5)
+            await message.edit("⛔ Process Canceled!", del_in=5)
         else:
             await message.delete()
             dl_loc = os.path.join(Config.DOWN_PATH, os.path.basename(dl_loc))
@@ -75,7 +75,7 @@ async def convert_(message: Message):
             message=message.reply_to_message,
             file_name=Config.DOWN_PATH,
             progress=progress,
-            progress_args=(message, "trying to download")
+            progress_args=(message, "✅ Trying To Download")
         )
         if message.process_is_canceled:
             await message.edit("`Process Canceled!`", del_in=5)
@@ -125,17 +125,17 @@ async def uploadtotg(message: Message):
                 speed = downloader.get_speed(human=True)
                 estimated_total_time = downloader.get_eta(human=True)
                 progress_str = \
-                    "__{}__\n" + \
+                    "{}\n" + \
                     "```[{}{}]```\n" + \
-                    "**Progress** : `{}%`\n" + \
-                    "**URL** : `{}`\n" + \
-                    "**FILENAME** : `{}`\n" + \
-                    "**Completed** : `{}`\n" + \
-                    "**Total** : `{}`\n" + \
-                    "**Speed** : `{}`\n" + \
-                    "**ETA** : `{}`"
+                    "**⏳Progress** : {}%\n" + \
+                    "**🔗 URL** : {}\n" + \
+                    "**📂 FILENAME** : {}\n" + \
+                    "**🗂 Completed** : {}\n" + \
+                    "**💾 Total** : {}\n" + \
+                    "**🚀 Speed** : {}\n" + \
+                    "**⏱ ETA** : {}"
                 progress_str = progress_str.format(
-                    "trying to download",
+                    "✅ Trying To Download",
                     ''.join((Config.FINISHED_PROGRESS_STR
                              for i in range(math.floor(percentage / 5)))),
                     ''.join((Config.UNFINISHED_PROGRESS_STR
@@ -209,7 +209,7 @@ async def upload(message: Message, path: Path, del_path: bool = False, extra: st
 async def doc_upload(message: Message, path, del_path: bool = False, extra: str = ''):
     strpath = str(path)
     sent: Message = await message.client.send_message(
-        message.chat.id, f"`Uploading {path.name} as a doc ... {extra}`")
+        message.chat.id, f"✅ Uploading {path.name} As A Doc .📁. {extra}")
     start_t = datetime.now()
     thumb = await get_thumb(strpath)
     await message.client.send_chat_action(message.chat.id, "upload_document")
@@ -222,7 +222,7 @@ async def doc_upload(message: Message, path, del_path: bool = False, extra: str 
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"uploading {extra}", str(path.name))
+            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -245,7 +245,7 @@ async def vid_upload(message: Message, path, del_path: bool = False, extra: str 
     if metadata and metadata.has("duration"):
         duration = metadata.get("duration").seconds
     sent: Message = await message.client.send_message(
-        message.chat.id, f"`Uploading {path.name} as a video ... {extra}`")
+        message.chat.id, f"✅ Uploading {path.name} As A Video .🎞. {extra}")
     start_t = datetime.now()
     await message.client.send_chat_action(message.chat.id, "upload_video")
     try:
@@ -258,7 +258,7 @@ async def vid_upload(message: Message, path, del_path: bool = False, extra: str 
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"uploading {extra}", str(path.name))
+            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -316,7 +316,7 @@ async def audio_upload(message: Message, path, del_path: bool = False, extra: st
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"uploading {extra}", str(path.name))
+            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -347,7 +347,7 @@ async def photo_upload(message: Message, path, del_path: bool = False, extra: st
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"uploading {extra}", str(path.name))
+            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
