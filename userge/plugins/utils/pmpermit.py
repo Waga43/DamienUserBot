@@ -23,7 +23,7 @@ allowAllFilter = filters.create(lambda _, __, ___: Config.ALLOW_ALL_PMS)
 noPmMessage = ("Hello {fname} this is an automated message\n"
                "Please wait until you get approved to direct message "
                "And please dont spam until then ")
-blocked_message = "**You were automatically blocked**"
+blocked_message = "**⛔ You Were Automatically Blocked ⛔**"
 
 
 async def _init() -> None:
@@ -57,10 +57,10 @@ async def allow(message: Message):
         a = await ALLOWED_COLLECTION.update_one(
             {'_id': userid}, {"$set": {'status': 'allowed'}}, upsert=True)
         if a.matched_count:
-            await message.edit("`Already approved to direct message`", del_in=3)
+            await message.edit("✅ Already Approved To Direct Message", del_in=3)
         else:
             await (await userge.get_users(userid)).unblock()
-            await message.edit("`Approved to direct message`", del_in=3)
+            await message.edit("✅ Approved To Direct Message", del_in=3)
     else:
         await message.edit(
             "I need to reply to a user or provide the username/id or be in a private chat",
@@ -212,7 +212,7 @@ async def uninvitedPmHandler(message: Message):
     else:
         pmCounter.update({message.from_user.id: 1})
         await message.reply(
-            noPmMessage.format_map(SafeDict(**user_dict)) + '\n`- Protected by userge`')
+            noPmMessage.format_map(SafeDict(**user_dict)) + '\n● Protected By @AmineSoukara')
         await asyncio.sleep(1)
         await CHANNEL.log(f"#NEW_MESSAGE\n{user_dict['mention']} has messaged you")
 
