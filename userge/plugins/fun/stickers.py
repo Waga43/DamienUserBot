@@ -23,11 +23,11 @@ from userge import userge, Message, Config
 
 
 @userge.on_cmd(
-    "kang", about={
+    "m", about={
         'header': "kangs stickers or creates new ones",
-        'usage': "Reply {tr}kang [emoji('s)] [pack number] to a sticker or "
+        'usage': "Reply {tr}m [emoji('s)] [pack number] to a sticker or "
                  "an image to kang it to your userbot pack.",
-        'examples': ["{tr}kang", "{tr}kang 🤔", "{tr}kang 2", "{tr}kang 🤔 2"]},
+        'examples': ["{tr}m", "{tr}m 🤔", "{tr}m 2", "{tr}m 🤔 2"]},
     allow_channels=False, allow_via_bot=False)
 async def kang_(message: Message):
     """ kang a sticker """
@@ -59,7 +59,7 @@ async def kang_(message: Message):
         photo = await userge.download_media(message=replied,
                                             file_name=Config.DOWN_PATH)
     else:
-        await message.edit("`I can't kang that...`")
+        await message.edit("`I can't ...`")
         return
     if photo:
         args = message.input_str.split()
@@ -82,14 +82,14 @@ async def kang_(message: Message):
             u_name = "@" + u_name
         else:
             u_name = user.first_name or user.id
-        packname = f"a{user.id}_by_userge_{pack}"
+        packname = f"AmineSoukaraVol{pack}"
         custom_packnick = Config.CUSTOM_PACK_NAME or f"{u_name}'s kang pack"
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = '/newpack'
         if resize:
             photo = resize_photo(photo)
         if is_anim:
-            packname += "_anim"
+            packname += "_Animated"
             packnick += " (Animated)"
             cmd = '/newanimated'
         async with aiohttp.ClientSession() as ses:
@@ -109,10 +109,10 @@ async def kang_(message: Message):
                 limit = "50" if is_anim else "120"
                 while limit in msg.text:
                     pack += 1
-                    packname = f"a{user.id}_by_userge_{pack}"
+                    packname = f"AmineSoukaraVol{pack}"
                     packnick = f"{custom_packnick} Vol.{pack}"
                     if is_anim:
-                        packname += "_anim"
+                        packname += "_Animated"
                         packnick += " (Animated)"
                     await message.edit("`Switching to Pack " + str(pack) +
                                        " due to insufficient space`")
@@ -179,7 +179,7 @@ async def kang_(message: Message):
                 await conv.get_response(mark_read=True)
                 await conv.send_message(packname)
                 await conv.get_response(mark_read=True)
-        await message.edit(f"**Sticker** [kanged](t.me/addstickers/{packname})!")
+        await message.edit(f"**✅ Sticker** [Done](t.me/addstickers/{packname})!")
         if os.path.exists(str(photo)):
             os.remove(photo)
 
@@ -231,13 +231,12 @@ def resize_photo(photo: str) -> io.BytesIO:
 
 
 KANGING_STR = (
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
-    "Inviting this sticker over to my pack...",
-    "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "hehe me stel ur stikér\nhehe.",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
-    "Imprisoning this sticker...",
-    "Mr.Steal Your Sticker is stealing this sticker... ")
+    "Ghnsr9 Lik Had Sticker Hhh ...",
+    "Andi Lik Had Sticker hehe...",
+    "Inviting This Sticker Over To My Pack...",
+    "I Like This Sticker ... So Ghnsr9o lik",
+    "Hey That's A Nice Sticker!\nMind if I Steal?!..",
+    "hehe Me Stel ur Sticker\nhehe.",
+    "Roses Are Red Violets Are Blue, Stealing This Sticker So My Pack Looks Cool",
+    "Imprisoning This Sticker...",
+    "Mr.Steal Your Sticker is Stealing This Sticker...")
