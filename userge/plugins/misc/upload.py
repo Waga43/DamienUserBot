@@ -36,9 +36,9 @@ LOGO_PATH = 'resources/userge.png'
 
 @userge.on_cmd("rename", about={
     'header': "Rename telegram files",
-    'flags': {'-d': "upload as document"},
+    'flags': {'-doc': "upload as document"},
     'usage': "{tr}rename [flags] [new_name_with_extention] : reply to telegram media",
-    'examples': "{tr}rename -d test.mp4"}, del_pre=True, check_downpath=True)
+    'examples': "{tr}rename -doc test.mp4"}, del_pre=True, check_downpath=True)
 async def rename_(message: Message):
     """ rename telegram files """
     if not message.filtered_input_str:
@@ -82,7 +82,7 @@ async def convert_(message: Message):
         else:
             await message.delete()
             dl_loc = os.path.join(Config.DOWN_PATH, os.path.basename(dl_loc))
-            message.text = '' if message.reply_to_message.document else ". -d"
+            message.text = '' if message.reply_to_message.document else ". -doc"
             await upload(message, Path(dl_loc), True)
     else:
         await message.edit("Please read `.help convert`", del_in=5)
@@ -90,10 +90,10 @@ async def convert_(message: Message):
 
 @userge.on_cmd("upload", about={
     'header': "Upload files to telegram",
-    'flags': {'-d': "upload as document"},
+    'flags': {'-doc': "upload as document"},
     'usage': "{tr}upload [flags] [file or folder path | link]",
     'examples': [
-        "{tr}upload -d https://speed.hetzner.de/100MB.bin | test.bin",
+        "{tr}upload -doc https://speed.hetzner.de/100MB.bin | test.bin",
         "{tr}upload downloads/test.mp4"]}, del_pre=True, check_downpath=True)
 async def uploadtotg(message: Message):
     """ upload to telegram """
