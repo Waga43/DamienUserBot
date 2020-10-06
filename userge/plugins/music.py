@@ -29,16 +29,16 @@ After getting Arl token Config `ARL_TOKEN` var in heroku"""
               '-zip': "Get a zip archive for Albums/Playlist Download"},
     'options': "Available Sound Quality: <code>FLAC | MP3_320 | MP3_256 | MP3_128</code>",
     'usage': "{tr}deezload [flag] [link | quality (default MP3_320)]",
-    'examples': "{tr}deezload -deezer https://www.deezer.com/track/142750222 \n"
-                "{tr}deezload -deezer https://www.deezer.com/track/3824710 FLAC \n"
-                "{tr}deezload -deezer https://www.deezer.com/album/1240787 FLAC \n"
-                "{tr}deezload -deezer -zip https://www.deezer.com/album/1240787 \n"
-                "{tr}deezload -song Ed Sheeran-Shape of You"})
+    'examples': "{tr}dl -deezer https://www.deezer.com/track/142750222 \n\n"
+                "{tr}dl -deezer https://www.deezer.com/track/3824710 FLAC \n\n"
+                "{tr}dl -deezer https://www.deezer.com/album/1240787 FLAC \n\n"
+                "{tr}dl -deezer -zip https://www.deezer.com/album/1240787 \n\n"
+                "{tr}dl -song Ed Sheeran-Shape of You"})
 async def deezload(message: Message):
     if not os.path.exists(TEMP_PATH):
         os.makedirs(TEMP_PATH)
     if not message.flags:
-        await message.edit("Hello🙂, This Plugin requires a proper flag to be passed.")
+        await message.edit("Hello 🙂, This Plugin requires a proper flag to be passed.")
         return
     await message.edit("Checking your Token.")
     if ARL_TOKEN is None:
