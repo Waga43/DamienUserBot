@@ -61,7 +61,7 @@ async def rename_(message: Message):
             os.rename(dl_loc, new_loc)
             await upload(message, Path(new_loc), True)
     else:
-        await message.edit("Please read `.help rename`", del_in=5)
+        await message.edit("Machi Haka 😑 Dir /Upload + Link. Please, Ila Mfhmtich Chi Haja Swel ⚡ @AmineSoukara", del_in=15)
 
 
 @userge.on_cmd("convert", about={
