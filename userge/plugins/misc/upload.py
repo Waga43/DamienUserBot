@@ -99,7 +99,7 @@ async def uploadtotg(message: Message):
     """ upload to telegram """
     path_ = message.filtered_input_str
     if not path_:
-        await message.edit("invalid input!, check `.help .upload`", del_in=5)
+        await message.edit("Machi Haka 😑 Dir /Upload + Link. Please, Ila Mfhmtich Chi Haja Swel ⚡ @AmineSoukara", del_in=15)
         return
     is_url = re.search(r"(?:https?|ftp)://[^|\s]+\.[^|\s]+", path_)
     del_path = False
