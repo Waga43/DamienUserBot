@@ -222,7 +222,7 @@ async def doc_upload(message: Message, path, del_path: bool = False, extra: str 
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
+            progress_args=(message, f"📁 Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -258,7 +258,7 @@ async def vid_upload(message: Message, path, del_path: bool = False, extra: str 
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
+            progress_args=(message, f"🎞 Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -301,7 +301,7 @@ async def audio_upload(message: Message, path, del_path: bool = False, extra: st
     if metadata and metadata.has("duration"):
         duration = metadata.get("duration").seconds
     sent: Message = await message.client.send_message(
-        message.chat.id, f"`Uploading {path.name} as audio ... {extra}`")
+        message.chat.id, f"✅ Uploading {path.name} As Audio .🎵. {extra}`")
     start_t = datetime.now()
     await message.client.send_chat_action(message.chat.id, "upload_audio")
     try:
@@ -316,7 +316,7 @@ async def audio_upload(message: Message, path, del_path: bool = False, extra: st
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
+            progress_args=(message, f"🎵 Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
@@ -336,7 +336,7 @@ async def audio_upload(message: Message, path, del_path: bool = False, extra: st
 async def photo_upload(message: Message, path, del_path: bool = False, extra: str = ''):
     strpath = str(path)
     sent: Message = await message.client.send_message(
-        message.chat.id, f"`Uploading {path.name} as photo ... {extra}`")
+        message.chat.id, f"✅ Uploading {path.name} As Photo .🖼. {extra}`")
     start_t = datetime.now()
     await message.client.send_chat_action(message.chat.id, "upload_photo")
     try:
@@ -347,7 +347,7 @@ async def photo_upload(message: Message, path, del_path: bool = False, extra: st
             parse_mode="html",
             disable_notification=True,
             progress=progress,
-            progress_args=(message, f"✅ Uploading {extra}", str(path.name))
+            progress_args=(message, f"🖼 Uploading {extra}", str(path.name))
         )
     except ValueError as e_e:
         await sent.edit(f"Skipping `{path}` due to {e_e}")
