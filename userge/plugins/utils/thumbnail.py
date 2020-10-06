@@ -56,7 +56,7 @@ async def save_thumb_nail(message: Message):
         await message.edit("Reply to a photo to save custom thumbnail", del_in=3)
 
 
-@userge.on_cmd('clear', about={'header': "Delete thumbnail"}, allow_channels=False)
+@userge.on_cmd('dthumb', about={'header': "Delete thumbnail"}, allow_channels=False)
 async def clear_thumb_nail(message: Message):
     """ delete thumbnail """
     await message.edit("Processing ...")
