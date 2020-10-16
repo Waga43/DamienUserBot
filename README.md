@@ -18,7 +18,7 @@
     <a href="https://github.com/UsergeTeam/Userge#copyright--license-">Copyright & License</a>
 </p>
 
-# Userge 🔥
+# DamienUser 🔥
 
 [![Build Status](https://travis-ci.com/UsergeTeam/Userge.svg?branch=dev)](https://travis-ci.com/UsergeTeam/Userge) ![Python Version](https://img.shields.io/badge/python-3.8-lightgrey) ![Release](https://img.shields.io/github/v/release/UsergeTeam/Userge) ![Stars](https://img.shields.io/github/stars/UsergeTeam/Userge) ![Forks](https://img.shields.io/github/forks/UsergeTeam/Userge) ![Issues Open](https://img.shields.io/github/issues/UsergeTeam/Userge) ![Issues Closed](https://img.shields.io/github/issues-closed/UsergeTeam/Userge) ![PR Open](https://img.shields.io/github/issues-pr/UsergeTeam/Userge) ![PR Closed](https://img.shields.io/github/issues-pr-closed/UsergeTeam/Userge) ![Contributors](https://img.shields.io/github/contributors/UsergeTeam/Userge) ![Repo Size](https://img.shields.io/github/repo-size/UsergeTeam/Userge) ![License](https://img.shields.io/github/license/UsergeTeam/Userge) ![Commit Activity](https://img.shields.io/github/commit-activity/m/UsergeTeam/Userge) [![Plugins Repo!](https://img.shields.io/badge/Plugins%20Repo-!-orange)](https://github.com/UsergeTeam/Userge-Plugins) [![Join Channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/theUserge) [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/UsergeTeam/Userge/?ref=repository-badge)
 
@@ -94,7 +94,7 @@ async def test_filter(message: Message):
 * **BOT** mode `(using bot account)`
 * **DUAL** mode `(using both user and bot account)`
 
-  > further **read** [config.env.sample](https://github.com/UsergeTeam/Userge/blob/alpha/config.env.sample)
+  > further **read** [config.env.sample](https://github.com/AmineSoukara/DamienUserBot/blob/beta/config.env.sample)
 
 ## How To Deploy 👷
 
@@ -104,7 +104,7 @@ async def test_filter(message: Message):
 
   > Fill `API_ID`, `API_HASH`, `DATABASE_URL` and `LOG_CHANNEL_ID` (**required**)
 
-  > Choose your [**MODE**](https://github.com/UsergeTeam/Userge#userge-modes-)
+  > Choose your [**MODE**](https://github.com/AmineSoukara/DamienUserBot#userge-modes-)
 
   > Then fill other **non-required** vars as relevent to your **MODE**
 
@@ -119,7 +119,7 @@ async def test_filter(message: Message):
 
   ```bash
   # clone the repo
-  git clone https://github.com/UsergeTeam/Userge.git
+  git clone https://github.com/AmineSoukara/DamienUserBot.git
   cd Userge
 
   # create virtualenv
@@ -135,19 +135,11 @@ async def test_filter(message: Message):
   # get string session and add it to config.env
   bash genStr
 
-  # finally run the Userge ;)
+  # finally run the Userbot ;)
   bash run
   ```
 
 * **[More Detailed Guide](https://docs.google.com/document/d/15uoiOn2NkN518MMkx9h5UaMEWMp8aNZqJocXvS0uI6E)** 📝
-
-### Video Tutorial 🎥
-
-  [![Tutorial](resources/tutorial.jpg)](https://youtu.be/M4T_BJvFqkc "Tutorial")
-
-### Support & Discussions 👥
-
-> Head over to the [Discussion Group](https://t.me/slbotsbugs) and [Update Channel](https://t.me/theUserge)
 
 ### Project Credits 💆‍♂️
 
