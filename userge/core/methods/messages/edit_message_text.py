@@ -35,6 +35,7 @@ class EditMessageText(RawClient):  # pylint: disable=missing-class-docstring
                                 ) -> Union['types.bound.Message', bool]:
         """\nExample:
                 message.edit_text("hello")
+
         Parameters:
             chat_id (``int`` | ``str``):
                 Unique identifier (int) or username (str) of the target chat.
@@ -42,18 +43,24 @@ class EditMessageText(RawClient):  # pylint: disable=missing-class-docstring
                 you can simply use "me" or "self".
                 For a contact that exists in your Telegram address book
                 you can use his phone number (str).
+
             message_id (``int``):
                 Message identifier in the chat specified in chat_id.
+
             text (``str``):
                 New text of the message.
+
             del_in (``int``):
                 Time in Seconds for delete that message.
+
             log (``bool`` | ``str``, *optional*):
                 If ``True``, the message will be forwarded
                 to the log channel.
                 If ``str``, the logger name will be updated.
+
             sudo (``bool``, *optional*):
                 If ``True``, sudo users supported.
+
             parse_mode (``str``, *optional*):
                 By default, texts are parsed using
                 both Markdown and HTML styles.
@@ -62,13 +69,17 @@ class EditMessageText(RawClient):  # pylint: disable=missing-class-docstring
                 Markdown-style parsing only.
                 Pass "html" to enable HTML-style parsing only.
                 Pass None to completely disable style parsing.
+
             disable_web_page_preview (``bool``, *optional*):
                 Disables link previews for links in this message.
+
             reply_markup (:obj:`InlineKeyboardMarkup`, *optional*):
                 An InlineKeyboardMarkup object.
+
         Returns:
             On success, the edited
             :obj:`Message` or True is returned.
+
         Raises:
             RPCError: In case of a Telegram RPC error.
         """
